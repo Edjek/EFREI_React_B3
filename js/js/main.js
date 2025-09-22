@@ -24,6 +24,9 @@ console.log(12 + '45'); // "1245" (concaténation string + number)
    ============================ */
 
 const animals = ['loup', 'renard', 'hibou'];
+const [, , animal3] = animals;
+
+console.log(animal3);
 
 /* ============================
    3) Objet avec structure claire
@@ -49,6 +52,17 @@ const character = {
         console.log('Kamehameha !');
     },
 };
+
+const { name: characterName, child } = character;
+console.log(character.children.second.name);
+
+// Grace a la destructuration creer une variable pour le nom et l'age du second enfant
+const {
+    children: {
+        second: { name, age },
+    },
+} = character;
+console.log(name, age);
 
 // Exemples d'accès sûrs et lisibles
 console.log(character.name);
@@ -83,3 +97,21 @@ console.log(popAgadir < popMarrakech);
    -----------------------------------------
    Je veux que quand on appuye sur le bouton, en javascript cela cree une liste affichant les personnage de la famille Simpson
    ========================================= */
+
+const addButton = document.querySelector('#addButton');
+
+addButton.addEventListener('click', () => {
+    const list = document.createElement('ul');
+    list.classList.add('liste');
+    list.innerHTML = `
+    <li>Hommer</li>
+    <li>Marge</li>
+    <li>Bart</li>
+    <li>Maggie</li>
+    <li>Lisa</li>`;
+
+    addButton.after(list);
+});
+
+// Je veux que dans un autre fichier Js vous creez 3 fonction add, divide, multiply, add sera la fonction par defaut
+//  et qu'avec le systeme de module ESM vous les utilisiez dans ce fichier
