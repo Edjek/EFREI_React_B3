@@ -1,43 +1,85 @@
-var mauvaisePratique = 'test';
-// ES6
-let test;
-let number = 12;
-let text = 'ma valeur';
-let boolean = true;
-let boolean2 = false;
-boolean = null;
- console.log( 12 + '45' );
+'use strict';
 
-let animals = ['loup', 12, [['TRefytf']]];
+/* ============================
+   1) Variables & bonnes pratiques
+   ============================ */
 
-let personnage = {
-    name: 'san goku',
-    puissance: 123,
-    capacite: ['vol', 'regeneration'],
-    enfant: {
-        firstChild: {
-            name: 'san Gohan',
+// Mauvaise pratique : var, noms vagues, types mélangés, réaffectations inutiles
+// var mauvaisePratique = 'test';
+
+// Bonnes pratiques :
+// - Utiliser `const` par défaut, `let` si réaffectation nécessaire
+// - Noms explicites, en camelCase
+
+const sampleNumber = 12;
+const sampleText = 'ma valeur';
+const isEnabled = true; // booléen explicite
+const isDisabled = false;
+
+// ⚠️ Exemple de coercition implicite (à éviter en prod) :
+console.log(12 + '45'); // "1245" (concaténation string + number)
+
+/* ============================
+   2) Array
+   ============================ */
+
+const animals = ['loup', 'renard', 'hibou'];
+
+/* ============================
+   3) Objet avec structure claire
+   ============================ */
+
+const character = {
+    name: 'Son Goku',
+    powerLevel: 123,
+    abilities: ['vol', 'régénération'],
+    children: {
+        first: {
+            name: 'Son Gohan',
             age: 23,
         },
-        secondChild: {
-            name: 'San Goten',
+        second: {
+            name: 'Son Goten',
             age: 5,
-            capacite: ['vol', 'regeneration'],
+            abilities: ['vol', 'régénération'],
         },
     },
-    kamehama: function () {
-        console.log('tu es mort!');
+    // Méthode (syntaxe concise ES2015)
+    kamehameha() {
+        console.log('Kamehameha !');
     },
 };
 
-console.log(personnage.name);
-console.log(personnage.capacite[1]);
-console.log(personnage.enfant.secondChild.capacite[0]);
+// Exemples d'accès sûrs et lisibles
+console.log(character.name);
+console.log(character.abilities[1]);
+console.log(character.children.second.abilities[0]);
+// character.kamehameha();
 
-console.log();
+/* =========================================
+   4) Exercice : Marrakech vs Agadir (population)
+   -----------------------------------------
+   Énoncé :
+   - Marrakech : 1 000 000 habitants, +50 000 / an (croissance linéaire)
+   - Agadir :   500 000 habitants, +8% / an (croissance exponentielle)
+   Objectif : dans combien d'années Agadir dépasse Marrakech ?
+   ========================================= */
 
-/*
-    La population de la ville Marrakech est de 1, 000, 000 d’habitants et elle augmente de 50, 000 habitants par an.
-    Celle de la ville Agadir est de 500, 000 habitants et elle augmente de 8% par an.
-    Ecrire un algorithme permettant de déterminer dans combien d’années la population de la ville Agadir dépassera celle de la ville Marrakech.
-*/
+let popMarrakech = 1000000;
+let popAgadir = 500000;
+let years = 0;
+
+while (popAgadir < popMarrakech) {
+    popAgadir = popAgadir * 1.08;
+    popMarrakech += 50000;
+
+    years++;
+}
+
+console.log(popAgadir < popMarrakech);
+
+/* =========================================
+   5) DOM : au clic, afficher la famille Simpson
+   -----------------------------------------
+   Je veux que quand on appuye sur le bouton, en javascript cela cree une liste affichant les personnage de la famille Simpson
+   ========================================= */
