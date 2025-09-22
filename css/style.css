@@ -1,0 +1,15 @@
+#hero {
+ color: salmon;
+}
+
+.txt-blue{
+    color: orange;
+}
+
+section a {
+    color: blue;
+}
+
+a {
+    color: purple !important;
+}
