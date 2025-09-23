@@ -5,13 +5,13 @@
 Réaliser une mini-application en **vanilla JavaScript** qui :
 
 -   Récupère une **citation aléatoire** depuis une API publique
-    _(ex. [https://api.quotable.io/random](https://api.quotable.io/random))_
+    _(ex. [https://api.chucknorris.io/jokes/random](https://api.chucknorris.io/jokes/random))_
 -   Permet de **charger une nouvelle citation** via un bouton
 -   Permet de **sauvegarder des favoris** en `localStorage` et de les **supprimer**
 
 ### 📌 API d’exemple (gratuite) : Quotable
 
--   Citation aléatoire : [https://api.quotable.io/random](https://api.quotable.io/random)
+-   Citation aléatoire : [https://api.chucknorris.io/jokes/random](https://api.chucknorris.io/jokes/random)
 
 ---
 
