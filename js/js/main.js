@@ -1,4 +1,4 @@
-'use strict';
+import addition, { multiply as multi } from './mathematic.js';
 
 /* ============================
    1) Variables & bonnes pratiques
@@ -115,3 +115,7 @@ addButton.addEventListener('click', () => {
 
 // Je veux que dans un autre fichier Js vous creez 3 fonction add, divide, multiply, add sera la fonction par defaut
 //  et qu'avec le systeme de module ESM vous les utilisiez dans ce fichier
+
+console.log(addition(19, 34));
+
+multi(67, 89);

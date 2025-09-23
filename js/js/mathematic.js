@@ -1,9 +1,11 @@
-function add(x, y) {
+export default function add(x, y) {
     return x + y;
 }
-function divide(x, y) {
+
+export function divide(x, y) {
     return x / y;
 }
-function multiply(x, y) {
+
+export function multiply(x, y) {
     return x * y;
 }
