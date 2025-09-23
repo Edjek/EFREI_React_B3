@@ -264,8 +264,8 @@ const students = [
 
 // 2. Afficher dans la console le nom et le prénom de chaque élève qui sont inscrits au cours de "Français" ou "Maths"
 
-// 3. Afficher dans la console le nom et le prénom de chaque élève qui ont ete reçus (utiliser la fonction que vous avez créée dans la partie 5)
-//
+// 3. Afficher dans la console le nom et le prénom de chaque élève qui ont ete reçus
+
 // 4. Afficher dans la console le nom et la moyenne de chaque élève
 
 // 5. Afficher dans la console le nom et la moyenne de chaque élève
