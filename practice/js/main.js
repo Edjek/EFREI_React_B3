@@ -31,6 +31,11 @@
 // 'Bonjour, je m'appelle XXXX'
 
 // Afficher le message avec les 3 facons de faire une concaténation ('', "", ``)
+const firstname = 'rachid';
+
+console.log("Bonjour, je m'appelle" + 'rachid'.toUpperCase());
+console.log("Bonjour, je m'appelle" + 'rachid'.toUpperCase());
+console.log(`Bonjour, je m'appelle ${firstname}`);
 
 // ---------------------------------- Partie ----------------------------------
 
@@ -44,19 +49,48 @@
 //     decrire => () => "La voiture est une renault clio rouge de 5 portes et 5 vitesses"
 //     decrireOptions => () => "La voiture est équipée de la climatisation, des vitres electriques, du gps, du bluetooth et des sieges chauffants"
 
+const car = {
+    marque: 'renault',
+    modele: 'clio',
+    couleur: 'rouge',
+    nbPOrtes: 5,
+    nbVitesse: 5,
+    listOptions: ['climatisation', 'vitres electriques', 'gps', 'bluetooth', 'siege chauffant'],
+    describe: function () {
+        return `La voiture est une ${this.marque} rouge de 5 portes et 5 vitesses`;
+    },
+    decrireOptions: function () {
+        return 'La voiture est une renault clio rouge de 5 portes et 5 vitesses';
+    },
+};
+
 // Afficher dans la console la marque de la voiture
+console.log(car.marque);
 // Afficher dans la console le modele de la voiture
+console.log(car.modele);
 // Afficher dans la console la couleur de la voiture
+console.log(car.couleur);
 
 // Afficher dans la console 'La voiture est une renault clio rouge de 5 portes et 5 vitesses'
+console.log(car.describe());
 
 // Afficher dans la console la liste des options de la voiture
+console.log(car.listOptions.join(', '));
 
 // A l'aide d'une boucle for(), afficher dans la console la liste des options de la voiture
+for (let i = 0; i < car.listOptions.length; i++) {
+    console.log(car.listOptions[i]);
+}
 
 // A l'aide d'une boucle forEach(), afficher dans la console la liste des options de la voiture
+car.listOptions.forEach((option) => {
+    console.log(option);
+});
 
 // A l'aide d'une boucle for(...of...), afficher dans la console la liste des options de la voiture
+for (const option of car.listOptions) {
+    console.log(option);
+}
 
 // Afficher dans la console 'La voiture est équipée de la climatisation, des vitres electriques, du gps, du bluetooth et des sieges chauffants'
 
@@ -65,6 +99,7 @@
 // Demander à l'utilisateur de saisir son age
 // Demander à l'utilisateur de saisir son sexe
 // Demander à l'utilisateur de saisir son animal préféré
+// const name = window.prompt('Donne ton nom')
 
 // Créer un objet utilisateur
 //     prenom => prenom de l'utilisateur
@@ -157,6 +192,9 @@ let users = [
 // Utiliser la méthode for()
 
 // Utiliser la méthode forEach()
+users.forEach((x) => {
+    console.log(x.description());
+});
 
 // Utiliser la méthode for(...of...)
 
@@ -263,6 +301,23 @@ const students = [
 // 1. Afficher dans la console le nom et le prénom de chaque élève
 
 // 2. Afficher dans la console le nom et le prénom de chaque élève qui sont inscrits au cours de "Français" ou "Maths"
+students.forEach((student) => {
+    if (student.cours.includes('Français') || student.cours.includes('Maths')) {
+        console.log(student.nom);
+    }
+});
+
+// au lieu d'utiliser directement includes les tableaux ont une methode some() utilisez là
+
+students.forEach((student) => {
+    if (
+        student.cours.some((c) => {
+            ['Français', 'Maths'].includes(c);
+        })
+    ) {
+        console.log(student.nom);
+    }
+});
 
 // 3. Afficher dans la console le nom et le prénom de chaque élève qui ont ete reçus
 
