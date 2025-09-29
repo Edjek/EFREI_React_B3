@@ -1,21 +1,19 @@
 import Button from '../components/Button';
 import Card from '../components/Card';
+import Compteur from '../components/Compteur.jsx';
+import InputControle from '../components/InputControle.jsx';
 import pokemons from '../data/pokemons.js';
 
 function Home() {
-    console.log(pokemons);
     return (
         <main>
-            {/* Pour chaque element de mon tableau je veux creer une card et lui passer les information necessaire, map() */}
-
-            
-            {/* <Card caracter='pikachu'>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illo, voluptatum! Neque, ullam ab velit
-                    rerum corrupti tenetur quasi necessitatibus, quibusdam facilis odit sunt excepturi ad officiis a
-                    magni asperiores nesciunt
-                </p>
-            </Card> */}
+            <InputControle />
+            <Compteur />
+            {pokemons.map((pokemon, index) => (
+                <Card caracter={pokemon.name} key={index}>
+                    <p>{pokemon.description}</p>
+                </Card>
+            ))}
 
             <Button
                 class='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded'
