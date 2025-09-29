@@ -1,9 +1,13 @@
 import Button from '../components/Button';
 import Card from '../components/Card';
+import pokemons from '../data/pokemons.js';
 
 function Home() {
+    console.log(pokemons);
     return (
         <main>
+            {/* Pour chaque element de mon tableau je veux creer une card et lui passer les information necessaire, map() */}
+
             
             {/* <Card caracter='pikachu'>
                 <p>

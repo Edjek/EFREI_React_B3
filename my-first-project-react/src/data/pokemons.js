@@ -20,3 +20,6 @@ const pokemons = [
   { name: "Draco", description: "Pokémon Dragon gracieux, réputé pour contrôler les climats." },
   { name: "Mewtwo", description: "Pokémon Psy légendaire créé par manipulation génétique, extrêmement puissant." }
 ];
+
+
+export default pokemons;
