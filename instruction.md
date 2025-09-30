@@ -1,4 +1,4 @@
-# Instructions du projet React My Movie
+# Instructions du projet React My Movie 🎬
 
 ## Création du projet
 
