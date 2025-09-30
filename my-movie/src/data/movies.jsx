@@ -1,51 +1,3 @@
-# Instructions du projet React My Movie 🎬
-
-## Création du projet
-
--   Créer une application React avec Vite nommée my-movie.
--   Installer et configurer TailwindCSS.
-
-## Structure des pages
-
-Créer 2 pages :
-
--   Home
--   Favorite
-
-## Navigation
-
--   Installer le système de router de React.
--   Mettre en place une NavBar avec un menu pour accéder aux deux pages.
-
-## Page Home
-
-Ajouter un formulaire de recherche :
-
--   L’input doit être contrôlé (gestion de l’état lors du changement de valeur).
-
--   À la soumission du formulaire, trier les cards de films affichées.
-
--   Afficher une liste de films en utilisant un composant MovieCard.
-
-## Composant MovieCard
-
-Props : un objet movie contenant :
-
-movie.path
-movie.title
-movie.release_date
-
-```
-Structure attendue :
-div
-├─ img
-├─ button 💓
-└─ div
-├─ h3
-└─ p
-```
-
-```javascript
 const movies = [
     { path: 'inception.jpg', title: 'Inception', release_date: '2010-07-16' },
     { path: 'interstellar.jpg', title: 'Interstellar', release_date: '2014-11-07' },
@@ -72,5 +24,5 @@ const movies = [
     { path: 'joker.jpg', title: 'Joker', release_date: '2019-10-04' },
     { path: 'spiderman.jpg', title: 'Spider-Man: No Way Home', release_date: '2021-12-17' },
 ];
-```
 
+export default movies;
