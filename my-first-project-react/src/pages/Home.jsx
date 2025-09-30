@@ -1,12 +1,14 @@
-import Button from '../components/Button';
-import Card from '../components/Card';
+import Button from '../components/Button.jsx';
+import Card from '../components/Card.jsx';
 import Compteur from '../components/Compteur.jsx';
 import InputControle from '../components/InputControle.jsx';
+import Panier from '../components/Panier.jsx';
 import pokemons from '../data/pokemons.js';
 
 function Home() {
     return (
         <main>
+            <Panier/>
             <InputControle />
             <Compteur />
             {pokemons.map((pokemon, index) => (
