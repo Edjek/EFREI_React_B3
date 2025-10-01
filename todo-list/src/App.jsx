@@ -30,6 +30,8 @@ function App() {
                     </li>
                 ))}
             </ul>
+            {/* rendre fonctionnel le bouton supprimer, retirer l'element de la todoList */}
+            {/* Doucle cliquer sur le texte de la tache barre le texte (pour dire que ce la a été fait et doucble cliquer à nouveau retire la barre) */}
         </div>
     );
 }
