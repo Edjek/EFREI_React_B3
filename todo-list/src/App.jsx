@@ -1,8 +1,24 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 function App() {
+    const STORAGE_KEY = 'todoList_v1';
     const [task, setTask] = useState('');
-    const [todoList, setTodoList] = useState([]);
+    const [todoList, setTodoList] = useState(() => {
+        try {
+            const raw = localStorage.getItem(STORAGE_KEY);
+            return raw ? JSON.parse(raw) : [];
+        } catch {
+            return [];
+        }
+    });
+
+    useEffect(() => {
+        try {
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(todoList));
+        } catch {
+            console.error('impossible de sauvegarder la todolist');
+        }
+    }, [todoList]);
 
     // Je veux sauvegarder cette liste dans le local storage
     // et je vais certainement avoir besoin d'utiliser un hook qui s'appelle useEffect()
@@ -18,7 +34,7 @@ function App() {
                         event.preventDefault();
                         if (task.trim() === '') return;
                         setTodoList([...todoList, task]);
-                        console.log(todoList);
+                        setTask('');
                     }}
                 >
                     <div className='mb-6'>
@@ -69,8 +85,6 @@ function App() {
                         </li>
                     ))}
                 </ul>
-                {/* rendre fonctionnel le bouton supprimer, retirer l'element de la todoList */}
-                {/* Doucle cliquer sur le texte de la tache barre le texte (pour dire que ce la a été fait et doucble cliquer à nouveau retire la barre) */}
             </div>
         </div>
     );
