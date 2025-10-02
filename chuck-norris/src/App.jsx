@@ -5,7 +5,7 @@ import './styles/App.css';
 import Favorites from './pages/Favorites';
 import Home from './pages/Home';
 
-function App() {
+const App = () => {
     return (
         <>
             <Header></Header>
@@ -16,6 +16,6 @@ function App() {
             <Footer></Footer>
         </>
     );
-}
+};
 
 export default App;
