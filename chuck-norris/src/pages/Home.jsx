@@ -1,7 +1,8 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
+import FavoritesKeyContext from '../contexts/FavoritesKeyContext';
 
 const Home = () => {
-    const FAVORITES_KEY = 'favorites'
+    const FAVORITES_KEY = useContext(FavoritesKeyContext);
     const [joke, setJoke] = useState('');
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState('');
@@ -25,19 +26,19 @@ const Home = () => {
 
     useEffect(() => {
         const data = localStorage.getItem(FAVORITES_KEY);
-        if(data){
-            setFavorites(JSON.parse(data))
+        if (data) {
+            setFavorites(JSON.parse(data));
         }
         loadJoke();
     }, []);
 
     const addToFavorites = () => {
-        if(!joke) return
-        if(favorites.includes(joke)) return
+        if (!joke) return;
+        if (favorites.includes(joke)) return;
 
-        const newFavorites = [...favorites, joke]
-        setFavorites(newFavorites)
-        localStorage.setItem(FAVORITES_KEY, JSON.stringify(newFavorites))
+        const newFavorites = [...favorites, joke];
+        setFavorites(newFavorites);
+        localStorage.setItem(FAVORITES_KEY, JSON.stringify(newFavorites));
     };
 
     return (
