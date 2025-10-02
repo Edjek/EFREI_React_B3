@@ -1,15 +1,18 @@
 import { useEffect, useState } from 'react';
 
 const Home = () => {
+    const FAVORITES_KEY = 'favorites'
     const [joke, setJoke] = useState('');
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState('');
+    const [favorites, setFavorites] = useState([]);
 
     const loadJoke = async () => {
         setLoading(true);
         setError('');
         try {
             const res = await fetch('https://api.chucknorris.io/jokes/random');
+            if (!res.ok) throw new Error(`HTTP ${res.status}`);
 
             const data = await res.json();
             setJoke(data.value);
@@ -21,8 +24,21 @@ const Home = () => {
     };
 
     useEffect(() => {
+        const data = localStorage.getItem(FAVORITES_KEY);
+        if(data){
+            setFavorites(JSON.parse(data))
+        }
         loadJoke();
     }, []);
+
+    const addToFavorites = () => {
+        if(!joke) return
+        if(favorites.includes(joke)) return
+
+        const newFavorites = [...favorites, joke]
+        setFavorites(newFavorites)
+        localStorage.setItem(FAVORITES_KEY, JSON.stringify(newFavorites))
+    };
 
     return (
         <main className='min-h-screen flex flex-col items-center justify-center bg-gray-100 p-6'>
@@ -39,6 +55,7 @@ const Home = () => {
                 >
                     Nouvelle blague
                 </button>
+                <button onClick={addToFavorites}>Ajouter aux favoris</button>
             </div>
         </main>
     );
